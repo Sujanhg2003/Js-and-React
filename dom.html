@@ -1,0 +1,79 @@
+ <!-- append()  to add multiple node.
+ appendChild() to add single node -->
+
+<html>
+    <body>
+        <div id="container"></div>
+        <h2 id="heading"> Old teXT</h2>
+        <div id="box">Old Content</div>
+
+        <ul id="list">
+            <li>Item 1</li>
+            <li id="removeMe">Item 2</li>
+        </ul>
+
+        <img id="logo" src="logo.jpg" width="200" height="200" alt="Old Logo">
+        <br>
+        <button id="btn" data-user = "Sujan">Click Me</button>
+
+        <h1 id="title">DOM Styling Example</h1>
+        <script>
+            //adding element
+            const div = document.getElementById("container")
+            
+            const para1 = document.createElement("p")
+            para1.textContent = "Appended using   appendChild()";
+            div.appendChild(para1);
+            console.log(para1.textContent);
+            console.log(para1.innerText);
+
+            const para2 = document.createElement("p");
+            para2.textContent = "Added using append()";
+
+            const para3 = document.createElement("p");
+            para3.textContent="adding another append paragraph"
+            div.append(para2,para3);
+
+            // Modifying element text using innerText
+            const h2 = document.getElementById("heading");
+            h2.innerText = "new text using     innerText";
+            console.log(h2.innerText);
+
+            //innerHtml --> html content including elements.
+            const box  = document.getElementById("box");
+            box.innerHTML = "New HTML content <br> added"
+            
+            //using remove --> remove entire element.
+            // const h = document.getElementById("removeMe");
+            // h.remove()
+
+            // removeChild() --> remove child node of entire node.
+            const list = document.getElementById("list");
+            const firstItem = list.querySelector("li");
+            list.removeChild(firstItem);
+
+            // modifying element attributes
+            const img = document.getElementById("logo");
+            img.setAttribute("src","image.png")
+            console.log(img.getAttribute("src"));
+
+            img.removeAttribute("alt");
+
+            const button = document.getElementById("btn");
+            console.log(button.dataset.user);
+
+            button.dataset.role = "developer";
+            console.log(button.dataset.role);
+
+            const title = document.getElementById("title");
+            title.style.color = "blue";
+            title.style.backgroundColor ="lightyellow";
+            title.style.fontSize="20px";
+            title.style.padding ="10px";
+
+            
+            
+
+        </script>
+    </body>
+</html>
